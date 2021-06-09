@@ -1,0 +1,5 @@
+in:
+  type: file
+  path_prefix: '/Users/cao.sonduc/embulk_test/./try1/csv/sample_'
+out:
+  type: stdout

@@ -19,7 +19,7 @@ filters:
       - { name: phone, type: substring, start: 5, length: 5 }
 out:
   type: file
-  path_prefix: ./adress_
+  path_prefix: ../adress_
   file_ext: csv
   formatter:
     type: csv

@@ -1,0 +1,34 @@
+# @format
+
+in:
+  type: postgresql
+  host: localhost
+  user: postgres
+  password: ""
+  database: testembulk
+  table: address
+  select: "address_id, address, district, city_id, postal_code, phone, last_update"
+  order_by: "address_id DESC"
+filters:
+  - type: mask
+    columns:
+      - { name: address }
+      - { name: district }
+      - { name: city_id, type: email, length: 5 }
+      - { name: postal_code }
+      - { name: phone, type: substring, start: 5, length: 5 }
+out:
+  type: file
+  path_prefix: ../adress_
+  file_ext: csv
+  formatter:
+    type: csv
+    delimiter: ","
+    newline: CRLF
+    newline_in_field: LF
+    charset: UTF-8
+    quote_policy: MINIMAL
+    quote: '"'
+    escape: "\\"
+    null_string: "\\N"
+    default_timezone: "UTC"

@@ -1,0 +1,10 @@
+# @format
+
+in:
+  type: file
+  path_prefix: "/Users/cao.sonduc/embulk_test/./try1/csv/annual-"
+  parser:
+    charset: UTF-8
+    type: csv
+out:
+  type: stdout
